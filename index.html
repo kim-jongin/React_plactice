@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html>
+    <body>
+        <span>Total clicks : 0</span>
+        <button id="btn">Click me</button>
+    </body>
+    <script>
+        let counter = 0;
+        const button = document.getElementById("btn");
+        const span = document.querySelector("span");
+        function handleClick() {
+            console.log("i have been clicked");
+            counter = counter + 1;
+            span.innerText = `Total clicks: ${counter}`;
+        }
+        button.addEventListener("click" , handleClick);
+    </script>
+<!--
+    위 과정에서 한 내용들 정리 
+    1. HTML 작성
+    2. JS 가져옴 
+    3. 이벤트 감지
+    4. 데이터 업데이트
+    5. HTML 업데이트
+
+    단점 : 계속된 이벤트 감지를 해야하고, 코드가 길어질수록 복잡도가 올라간다.
+-->
+</html>
