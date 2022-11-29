@@ -1,5 +1,13 @@
 <!DOCTYPE html>
 <html>
+    <!--
+    두 가지 const를 render 하고 싶은 경우 div를 만든다
+    그리고 React.createElement("div", null, [span, btn]); 와 같이 배열을 만들어서 const를 넣어준다.
+
+    property에 eventListener 넣는 것도 가능.
+    클릭 - {onClick: () => console.log("I'm clicked")}
+    마우스엔터 - {onMouseEnter: () => console.log("mouse enter")}
+    -->
     <body>
         <div id="root"></div>
     </body>
@@ -11,7 +19,7 @@
         const h3 = React.createElement(
             "h3", 
             { 
-                onMouseEnter: ()=> cnosole.log("mouse enter") 
+                onMouseEnter: ()=> console.log("mouse enter") 
             }, 
             "hello i'm jongin"
             );
