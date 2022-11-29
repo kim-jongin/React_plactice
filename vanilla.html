@@ -1,5 +1,26 @@
 <!DOCTYPE html>
 <html>
+    <!--
+아래 내용들은 암기 X , 이해하기 
+
+React를 import했기에, createElelment function을 가진 React Object에 접근이 가능하다.
+const span에서 createElement("span")은 반드시 생성하고자 하는 HTML태그와 같아야함.
+
+React JS -> 어플리케이시ㅕㄴ이 interective하도록 만들어주는 library.
+React-dom -> library또는 package. 모든 react element를 HTML body에 둘 수 있게 함.
+ReactDOM.render() -> render의 의미는 React element를 가지고 HTML로 만들어 배치한다는 의미. = 사용자에게 보여주는 것
+
+React.createElement("span", {span의 property}, “span의 내용”)
+-> property는 class name, id도 가능 style도 가능
+-> 참고만 하고 외우지 말기. 이렇게 쓸 일 없음
+
+바닐라JS는 HTML -> JS 순서
+리액트는 JS -> HTML 순서
+
+
+JS가 element를 생성하고 React JS가 그것을 HTML로 번역하는 것
+React JS는 업데이트 해야 하는 HTML을 업데이트 할 수 있음
+-->
     <body>
         <div id="root"></div>
     </body>
