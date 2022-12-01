@@ -6,55 +6,18 @@
     <script src="https://unpkg.com/react@17.0.2/umd/react.production.min.js"></script>
     <script src="https://unpkg.com/react-dom@17.0.2/umd/react-dom.production.min.js"></script>
     <script src="https://unpkg.com/@babel/standalone/babel.min.js"></script>
-
-    <!--
-        div에 const 넣기 위해선
-    1. const를 함수로 만들어 줘야함 const Btn = () => ( );
-    -> arrow function 이라고 부름
-    = () => ( ); 는 function Btn() { return ( ); } 와 같음
-    2. HTML 태그처럼 만들어서 넣어줌
-    3. (중요) 컴포넌트의 첫 글자는 반드시 대문자여야 함
-    -> 우리가 직접 만든 요소는 전부 대문자로 시작해야 함
-    -->
-    
     <script type="text/babel">
         const root = document.getElementById("root");
-        function Title() {
-            <h3 id="title" onMouseEnter={ () => console.log("mouse.enter")}> 
-                hello i'm jongin
-            </h3>
+        let counter = 0;
+        function countUp() {
+            counter = counter + 1;
         }
-        // const h3 = React.createElement(
-        //     "h3", 
-        //     { 
-        //         onMouseEnter: ()=> console.log("mouse enter") 
-        //     }, 
-        //     "hello i'm jongin"
-        //     );
-
-        function Button = 
-            <button
-                style={{
-                    backgroundColor: "tomato",
-                }}
-                onClick={()=> console.log("im clicked")}
-                >
-                Click me
-            </button>
-
-        // const btn = React.createElement(
-        //     "button", 
-        //     {
-        //         onClick: ()=> console.log("im clicked")
-        //     }, 
-        //     "Click me"
-        //     );
-        const Container = (
+        const Container = () => (
             <div>
-                <Title />
-                <Button />
+                <h3>Total clicks: { counter }</h3>
+                <button onClick={ countUp }>Click me</button>
             </div>
         )
-        ReactDOM.render(Container, root);
+        ReactDOM.render(<Container />, root);
     </script>
 </html>
