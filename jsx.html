@@ -16,9 +16,7 @@
     <script type="text/babel">
         const root = document.getElementById("root");
         function App() {
-            const data = React.useState(0);
-            const counter = data[0];
-            const modifier = data[1];
+            const [counter, modifier] = React.useState(0);
             return(
                 <div>
                     <h3>Total clicks: { counter }</h3>
