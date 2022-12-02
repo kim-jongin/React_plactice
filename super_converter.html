@@ -8,9 +8,9 @@
     <script src="https://unpkg.com/@babel/standalone/babel.min.js"></script>
     <script type="text/babel">
         function App() {
-            const [minutes, setMinutes] = React.useState()
-            const onChange = () => {
-                console.log("somebody worte");
+            const [minutes, setMinutes] = React.useState();
+            const onChange = (event) => {
+                setMinutes(event.target.value);
             }
             return (
                 <div>
@@ -19,16 +19,21 @@
                     <input
                         value={minutes}
                         id="minutes"
-                        placehoder="minutes" 
+                        placehoder="Minutes" 
                         type="number"
                         onChange={onChange}
                         />
+                    <h4>You want to convert {minutes}</h4>
                     <label htmlFor="hours">Hours</label>
-                    <input placehoder="hours" type="number"/>
+                    <input id="hours"placehoder="Hours" type="number"/>
                 </div>
             )
         }
         const root = document.getElementById("root");
         ReactDOM.render(<App />, root);
     </script>
+<!--
+input값 알기
+-->
 </html>
+
