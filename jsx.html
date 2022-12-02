@@ -1,11 +1,12 @@
 <!DOCTYPE html>
 <html>
     <!--
-        리액트의 장점 
-        변경된 State만 업데이트 해준다. 
-        리액트가 아닌 경우, JS를 사용 하면, JS를 쓴 브라우저는 Node정보가 바뀔때 마다 Node Tree를 다섯단계에 걸쳐 재생성.
-        이는 비효율적.
-        리액트는 가상돔을 사용하기에, 시야에 보이는 부분만 업데이트 해주고, 업데이트가 끝나면 일괄적으로 합쳐서 실제 돔에 전달한다.
+        state를 세팅하는 데는 2가지 방법이 있다.
+    1) 직접 할당 :setState(state +1)
+    2)함수를 할당:setState(state => state +1) (함수의 첫번째 인자는 현재 state 이다)
+
+    현재 state랑 관련이 없는 값을 새로운 state로 하고싶은 경우에는 (1),
+    현재 state에 조금의 변화를 주어서 새로운 state를 주고 싶은 경우에는 (2)
     -->
     <body>
         <div id="root"></div>
@@ -17,9 +18,12 @@
         const root = document.getElementById("root");
         function App() {
             const [counter, setCounter] = React.useState(0);
+                //setCounter(counter + 1);
             const onClick = () => {
-                setCounter(counter + 1);
-            }
+                setCounter((current) => current + 1);
+                //위 방법은 setCounter에 함수를 넣는 방법 
+                //함수의 첫 값은 argument의 현재 값. return값이 새로운 값이 되는것. = 새로운 state가 되는것임. 이는 현재 state값을 기준으로 나타내기에 적함한 코드임.
+            };
             return(
                 <div>
                     <h3>Total clicks: { counter }</h3>
