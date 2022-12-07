@@ -25,7 +25,7 @@
                         placehoder="Minutes" 
                         type="number"
                         onChange={onChange} //이벤트 감지
-                        disabled={flipped === true}
+                        disabled={flipped}
                         />
                     <div>
                         <label htmlFor="hours">Hours</label>
@@ -34,7 +34,7 @@
                             id="hours"
                             placehoder="Hours"
                             type="number"
-                            disabled={flipped === false}
+                            disabled={!flipped}
                             />    
                     </div>
                     <button onClick={reset}>Reset</button>
