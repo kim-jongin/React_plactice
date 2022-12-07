@@ -9,7 +9,7 @@
     <script type="text/babel">
         function App() {
             const [amount, setAmount] = React.useState(0);
-            const [flipped, setFlipped] = React.useState(false);
+            const [inverted, setInverted] = React.useState(false);
             const onChange = (event) => {
                 setMinutes(event.target.value); //이벤트 발생 시, 값을 업데이트, UI에 보여주는 것
             };
@@ -23,26 +23,26 @@
                     <h1 className="hi">Super Converter</h1>
                     <label htmlFor="minutes">Minutes</label>
                     <input
-                        value={flipped ? amount*60 : amount}
+                        value={inverted ? amount*60 : amount}
                         id="minutes"
                         placehoder="Minutes" 
                         type="number"
                         onChange={onChange} //이벤트 감지
-                        disabled={flipped}
+                        disabled={inverted}
                         />
                     <div>
                         <label htmlFor="hours">Hours</label>
                         <input
-                            value={flipped ? amount : Math.round(amount / 60)}
+                            value={inverted ? amount : Math.round(amount / 60)}
                             id="hours"
                             placehoder="Hours"
                             type="number"
-                            disabled={!flipped}
+                            disabled={!inverted}
                             onChange={onChange}
                             />    
                     </div>
                     <button onClick={reset}>Reset</button>
-                    <button onCLick={onFlip}>Flip</button>
+                    <button onCLick={onInvert}>{inverted ? "Turn back" : Invert}Flip</button>
                 </div>
             )
         }
