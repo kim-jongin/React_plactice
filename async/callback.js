@@ -35,6 +35,12 @@ class UserStorage {
     }
 
     getRoles(user, onSuccess, onError){
-
+        setTimeout(() => {
+            if (user === 'jjong') {
+                onSuccess({name: 'jjong', role: 'admin'});
+            } else {
+                onError(new Error('no access'));
+            }
+        },1000);
     }
 }
