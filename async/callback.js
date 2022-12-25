@@ -16,4 +16,25 @@ printImmediately(() => console.log('hello'));
 function printWithDelay(print, timeout) {
     setTimeout(print, timeout);
 }
-printWithDelay(() => console.log('async callback'));
+printWithDelay(() => console.log('async callback'),2000);
+
+
+//3. callback hell example
+class UserStorage {
+    loginUser(id, password, onSuccess, onError) {
+        setTimeout(() => {
+            if(
+                (id === 'jjong' && password ==='in') ||
+                (id === 'ssick' && password === 'jjong'
+            )) {
+                    onSuccess(id);
+                } else {
+                    onError(new Error('not found'));
+                }
+        },2000);
+    }
+
+    getRoles(user, onSuccess, onError){
+
+    }
+}
