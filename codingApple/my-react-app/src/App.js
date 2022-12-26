@@ -1,40 +1,32 @@
-import React from "react"
-import React, { useState } from "react"
+import axios from 'axios';
 
-function AddCalculator() {
-  let num1 = 0;
-  let num2 = 0;
-  const [num1,setNum1] = useState(0)// useState라는 함수 실행결과로 배열이 나온다.
-  const [num2,setNum2] = useState(0)
-  console.log(num1)//배열의 0번째는 값이나오고 1번째는 함수(값을 바꿔주는)가나온다.
+const searchImg = async () => {
+    const response = await axios.get('https://api.unsplash.com/search/photos', {
+        headers: {
+            Authorization: "Client-ID CLC1gDOpj3EYHp6RShY8G_MzooHdr5kUF8wgct4Ws6s"
+        },
+        params: {
+            query: 'flower'
+        }
+    }).catch(function (error) {
+        if (error.response) {
+            // 요청이 전송되었고, 서버는 2xx 외의 상태 코드로 응답했습니다.
+            console.log(error.response.data);
+            console.log(error.response.status);
+            console.log(error.response.headers);
+        } else if (error.request) {
+            // 요청이 전송되었지만, 응답이 수신되지 않았습니다. 
+            // 'error.request'는 브라우저에서 XMLHtpRequest 인스턴스이고,
+            // node.js에서는 http.ClientRequest 인스턴스입니다.
+            console.log(error.request);
+        } else {
+            // 오류가 발생한 요청을 설정하는 동안 문제가 발생했습니다.
+            console.log('Error', error.message);
+        }
+        console.log(error.config);
+    });
 
-  console.log("더하기 컴포넌트 함수가 실행되었습니다.")
-  return(
-    <div>
-      <h2>더하기</h2>
-      <input type="number" name="num1" onChange={(e)=>{
-        num1=Number(e.target.value)
-        console.log(num1)
-        setNum1(Number(e.target.value))//리액트야! Number(e.target.value)이 값으로 바꿔줘!
-        // console.log(num1)
-        }}/>
-      <input type="number" name="num2" onChange={(e)=>{
-        num2=Number(e.target.value)
-        console.log(num2)
-        setNum2(Number(e.target.value))
-        // console.log(num2)
-
-      }}/>
-      결과 : {num1+num2}
-    </div>
-  )
+    return response.data.results
 }
-function App() {
-  return (
-    <div>
-      <h1>계산기</h1>
-      <AddCalculator/>
-    </div>
-  );
-}
-export default App;
+
+export default searchImg;
