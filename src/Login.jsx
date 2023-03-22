@@ -7,6 +7,7 @@ export default function Login() {
 
   const [emailValid, setEmailValid] = useState(false);
   const [pwValid, setPwValid] = useState(false);
+  const [notAllow, setNotAllow] = useState(true);
 
   const handleEmail = (e) => {
     setEmail(e.target.value);
@@ -31,6 +32,14 @@ export default function Login() {
       setPwValid(false);
     }
   };
+
+  useEffect(() => {
+    if (emailValid && pwValid) {
+      setNotAllow(false);
+      return;
+    }
+    setNotAllow(true);
+  }, [emailValid, pwValid]);
 
   return (
     <div className='page'>
